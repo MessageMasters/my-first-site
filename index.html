@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+  =============================================================
+  Starter website  ·  made for Matt to learn the GitHub workflow
+  =============================================================
+  HOW TO USE THIS FILE
+  - This whole website is ONE file. That's on purpose — it makes
+    it dead simple to publish on GitHub Pages.
+  - To make it yours, change the text between the tags below.
+    Look for comments like  <!-- CHANGE ME -->  to spot the easy edits.
+  - The name of this file MUST stay exactly:  index.html
+    GitHub Pages looks for "index.html" as the front page.
+  =============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE ME: this is the browser tab title -->
+  <title>Northstar Plumbing &amp; Heating</title>
+  <style>
+    :root {
+      --ink: #14213d;
+      --ink-soft: #4a5568;
+      --brand: #1d4ed8;
+      --brand-dark: #1e3a8a;
+      --accent: #f59e0b;
+      --paper: #ffffff;
+      --mist: #f4f6fb;
+      --line: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { width: min(1080px, 92%); margin: 0 auto; }
+
+    /* ---------- Top bar ---------- */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0;
+    }
+    .brand {
+      font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .brand span { color: var(--brand); }
+    nav a {
+      color: var(--ink-soft); text-decoration: none; margin-left: 28px;
+      font-weight: 600; font-size: 0.95rem;
+    }
+    nav a:hover { color: var(--brand); }
+    .nav-links { display: flex; align-items: center; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background:
+        radial-gradient(1200px 400px at 80% -10%, #dbe4ff 0%, transparent 60%),
+        linear-gradient(180deg, var(--mist), var(--paper));
+      padding: 92px 0 80px;
+    }
+    .eyebrow {
+      display: inline-block; background: #e0e7ff; color: var(--brand-dark);
+      font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+      max-width: 15ch;
+    }
+    .hero p {
+      font-size: 1.2rem; color: var(--ink-soft);
+      max-width: 52ch; margin-bottom: 32px;
+    }
+    .cta {
+      display: inline-block; background: var(--brand); color: #fff;
+      text-decoration: none; font-weight: 700; padding: 15px 30px;
+      border-radius: 10px; box-shadow: 0 10px 24px rgba(29, 78, 216, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(29, 78, 216, 0.34); }
+    .cta.ghost {
+      background: #fff; color: var(--brand); margin-left: 12px;
+      box-shadow: inset 0 0 0 2px var(--line);
+    }
+
+    /* ---------- Services ---------- */
+    section { padding: 76px 0; }
+    .section-head { text-align: center; max-width: 46ch; margin: 0 auto 48px; }
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .section-head p { color: var(--ink-soft); font-size: 1.05rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 16px; padding: 32px 28px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(20, 33, 61, 0.08); }
+    .icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: #e0e7ff; color: var(--brand);
+      display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 18px;
+    }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { color: var(--ink-soft); font-size: 0.98rem; }
+
+    /* ---------- Call-to-action strip ---------- */
+    .strip {
+      background: linear-gradient(120deg, var(--brand-dark), var(--brand));
+      color: #fff; text-align: center; border-radius: 20px;
+      padding: 56px 28px; margin: 20px 0;
+    }
+    .strip h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 12px; }
+    .strip p { opacity: 0.9; margin-bottom: 28px; font-size: 1.1rem; }
+    .strip .cta { background: #fff; color: var(--brand-dark); }
+    .strip .cta:hover { box-shadow: 0 14px 30px rgba(0,0,0,0.2); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--ink); color: #cbd5e1;
+      padding: 48px 0; margin-top: 40px;
+    }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .foot a { color: #93c5fd; text-decoration: none; }
+    .foot .brand { color: #fff; }
+    .muted { color: #64748b; font-size: 0.9rem; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <header>
+    <div class="wrap bar">
+      <!-- CHANGE ME: your business name -->
+      <a href="#" class="brand">Northstar<span>.</span></a>
+      <div class="nav-links">
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#why">Why us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Licensed &amp; insured · 24/7</span>
+      <!-- CHANGE ME: your headline -->
+      <h1>Reliable plumbing &amp; heating, done right the first time.</h1>
+      <!-- CHANGE ME: one or two sentences about the business -->
+      <p>Family-owned and serving the greater metro area for over 20 years.
+         Fast, honest service with upfront pricing and no surprises.</p>
+      <a href="#contact" class="cta">Get a free quote</a>
+      <a href="#services" class="cta ghost">See services</a>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <p>Everything from a leaky faucet to a full system install.</p>
+      </div>
+      <div class="cards">
+        <!-- CHANGE ME: each card below is one service -->
+        <div class="card">
+          <div class="icon">🔧</div>
+          <h3>Repairs</h3>
+          <p>Leaks, clogs, water heaters, and emergency fixes — same-day when you need it.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h3>Installations</h3>
+          <p>New fixtures, heating systems, and remodels installed clean and to code.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Maintenance</h3>
+          <p>Seasonal tune-ups and inspections that keep small problems from getting big.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA STRIP ============ -->
+  <section id="why">
+    <div class="wrap">
+      <div class="strip">
+        <h2>Ready when you are</h2>
+        <p>Call today and talk to a real person — no phone trees, no runaround.</p>
+        <!-- CHANGE ME: your phone number -->
+        <a href="tel:5551234567" class="cta">Call (555) 123-4567</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="contact">
+    <div class="wrap foot">
+      <div>
+        <div class="brand">Northstar Plumbing &amp; Heating</div>
+        <!-- CHANGE ME: your address / hours -->
+        <div class="muted">123 Main Street, Your Town, ST 00000<br />Mon–Sat, 7am–7pm</div>
+      </div>
+      <div>
+        <!-- CHANGE ME: your contact details -->
+        <div>📞 <a href="tel:5551234567">(555) 123-4567</a></div>
+        <div>✉️ <a href="mailto:hello@example.com">hello@example.com</a></div>
+        <div class="muted">© 2026 Northstar. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
